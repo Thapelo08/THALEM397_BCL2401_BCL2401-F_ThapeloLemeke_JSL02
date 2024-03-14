@@ -22,20 +22,14 @@ const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
 
-  const addNewGoal = () => {
-    // Get the value from the input field
-    const goalInput = document.querySelector('#goalInput').value.trim();
-    // Get the list of existing goals
-    const existingGoals = Array.from(document.querySelectorAll('#goalList li'));
-    // Check if the goal already exists in the list
-    const isDuplicate = existingGoals.some(goal => goal.textContent.trim() === goalInput);
-    // If it's a duplicate, alert the user or handle it accordingly
-    if (isDuplicate) {
-        alert('Goal already exists!');
-        return;
-    }
-    
-  } 
+  
+    const goals = goalList.querySelectorAll('li');
+    for(const goal of goals) {
+        if(goal.textContent === goalInput) {
+            alert ("Goal already exists");
+            return;
+        }
+    } 
     
     // ⚠️ Hint 1: Check for duplicates
     // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
